@@ -1,285 +1,536 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EVERY PT CAREERS</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>EVERY PT Trainer Partner</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
 body{
-  background:#05070b;
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard","Segoe UI",sans-serif;
+  background:#07090d;
   color:#fff;
-  font-family:-apple-system,BlinkMacSystemFont,"Pretendard",sans-serif;
+  word-break:keep-all;
   overflow-x:hidden;
 }
+a{text-decoration:none;color:inherit}
+:root{
+  --gold:#c9a45c;
+  --gold2:#f2d27b;
+  --navy:#101722;
+  --card:#121a28;
+  --line:rgba(255,255,255,.11);
+  --muted:#a8b0bd;
+}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:100px 0}
+h1{font-size:clamp(42px,6vw,76px);line-height:1.08;letter-spacing:-2.8px;font-weight:950}
+h2{font-size:clamp(30px,4vw,48px);line-height:1.2;letter-spacing:-1.4px;font-weight:950;margin-bottom:18px}
+h3{font-size:22px;margin-bottom:10px}
+p{color:var(--muted);line-height:1.75;font-size:16px}
+.gold{color:var(--gold)}
 
-/* ================= HERO ================= */
+/* NAV */
+.nav{
+  position:fixed;top:0;left:0;right:0;height:72px;z-index:99;
+  background:rgba(7,9,13,.72);
+  backdrop-filter:blur(18px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{height:72px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:2px}
+.brand img{width:38px;height:38px;object-fit:contain}
+.nav-btn{
+  padding:12px 18px;border-radius:999px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));
+  color:#111;font-weight:900;transition:.3s
+}
+.nav-btn:hover{transform:translateY(-3px);box-shadow:0 16px 34px rgba(201,164,92,.35)}
+
+/* HERO */
 .hero{
-  height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 8%;
+  min-height:100vh;
+  padding:130px 0 90px;
   position:relative;
-  background:
-    radial-gradient(circle at 70% 30%, rgba(201,164,92,.3), transparent 30%),
-    linear-gradient(135deg,#05070b,#111827);
-}
-
-/* 텍스트 */
-.hero-text{max-width:520px;}
-.hero-text h1{
-  font-size:52px;
-  line-height:1.3;
-  font-weight:900;
-}
-.hero-text span{color:#c9a45c;}
-
-.hero-text p{
-  margin-top:20px;
-  color:#ccc;
-  line-height:1.6;
-}
-
-/* 버튼 */
-.btn-wrap{margin-top:30px;display:flex;gap:15px;}
-
-.btn{
-  padding:14px 26px;
-  border-radius:12px;
-  text-decoration:none;
-  font-weight:600;
-  transition:.3s;
-}
-
-.btn-primary{
-  background:linear-gradient(135deg,#f2d27b,#c9a45c);
-  color:#000;
-}
-.btn-primary:hover{
-  transform:translateY(-3px);
-  box-shadow:0 10px 30px rgba(242,210,123,.4);
-}
-
-.btn-secondary{
-  border:1px solid rgba(255,255,255,.3);
-  color:#fff;
-}
-.btn-secondary:hover{
-  background:rgba(255,255,255,.05);
-}
-
-/* ================= 3D LOGO ================= */
-.logo-stage{
-  width:420px;height:420px;
-  display:flex;align-items:center;justify-content:center;
-  perspective:1200px;
-  position:relative;
-}
-
-.logo-box{
-  width:100%;height:100%;
-  transform-style:preserve-3d;
-  animation:rotate360 18s linear infinite;
-  transition:transform .1s;
-}
-
-.logo-box img{
-  width:100%;
-  filter:
-    drop-shadow(0 30px 40px rgba(0,0,0,.6))
-    drop-shadow(0 0 25px rgba(201,164,92,.4));
-}
-
-/* 자동회전 */
-@keyframes rotate360{
-  from{transform:rotateY(0deg);}
-  to{transform:rotateY(360deg);}
-}
-
-/* 빛 */
-.glow{
-  position:absolute;
-  width:300px;height:300px;
-  background:radial-gradient(circle,rgba(242,210,123,.5),transparent);
-  filter:blur(60px);
-  animation:glowMove 6s infinite alternate;
-}
-
-@keyframes glowMove{
-  from{transform:translate(-30px,-20px);}
-  to{transform:translate(40px,20px);}
-}
-
-/* ================= SECTION ================= */
-.section{
-  padding:120px 8%;
-}
-
-.title{
-  font-size:36px;
-  margin-bottom:30px;
-}
-.title span{color:#c9a45c;}
-
-.card{
-  background:#111827;
-  border-radius:20px;
-  padding:30px;
-  margin-bottom:20px;
-  transition:.3s;
-  border:1px solid rgba(255,255,255,.08);
-}
-.card:hover{
-  transform:translateY(-8px);
-  border-color:#c9a45c;
-}
-
-/* 지점 */
-.branch{
-  display:flex;
-  gap:20px;
-  background:#111827;
-  border-radius:20px;
   overflow:hidden;
+  background:
+    radial-gradient(circle at 72% 40%,rgba(242,210,123,.25),transparent 28%),
+    radial-gradient(circle at 20% 78%,rgba(201,164,92,.11),transparent 28%),
+    linear-gradient(135deg,#05070b 0%,#101722 48%,#1f2428 100%);
 }
-.branch img{width:50%;object-fit:cover;}
-.branch-info{padding:30px;}
+.hero:before{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+  background-size:54px 54px;
+  mask-image:radial-gradient(circle at center,#000 0%,transparent 72%);
+  opacity:.3;
+}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:.95fr 1.05fr;gap:54px;align-items:center}
+.eyebrow{
+  display:inline-flex;margin-bottom:28px;padding:10px 14px;border-radius:999px;
+  border:1px solid rgba(242,210,123,.35);color:var(--gold2);
+  font-size:12px;font-weight:900;letter-spacing:3px;background:rgba(255,255,255,.04)
+}
+.hero h1 span{
+  color:transparent;
+  background:linear-gradient(135deg,#fff0bd,#c9a45c 45%,#f7e3a0 72%,#9d7533);
+  -webkit-background-clip:text;background-clip:text
+}
+.hero-copy p{font-size:19px;margin:28px 0 36px;color:#d5dae3;max-width:620px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:18px 24px;border-radius:18px;font-weight:950;transition:.3s
+}
+.btn-primary{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111;box-shadow:0 20px 45px rgba(201,164,92,.3)}
+.btn-secondary{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.05)}
+.btn:hover{transform:translateY(-5px)}
 
-.map-btn{
-  margin-top:15px;
-  display:inline-block;
-  padding:10px 18px;
-  border-radius:10px;
-  background:#c9a45c;
-  color:#000;
-  text-decoration:none;
+/* 3D LOGO */
+.logo-stage{
+  height:560px;border-radius:44px;display:grid;place-items:center;position:relative;
+  perspective:1400px;overflow:hidden;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));
+  border:1px solid rgba(255,255,255,.13);
+  box-shadow:0 40px 110px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.12);
 }
+.logo-stage:before{
+  content:"";position:absolute;inset:1px;border-radius:43px;
+  background:radial-gradient(circle at var(--mx,50%) var(--my,50%),rgba(242,210,123,.24),transparent 28%);
+}
+.orbit{
+  position:absolute;border-radius:50%;border:1px dashed rgba(242,210,123,.36);
+  animation:orbit 16s linear infinite
+}
+.orbit.one{width:420px;height:420px}
+.orbit.two{width:330px;height:330px;animation-direction:reverse;animation-duration:11s;opacity:.7}
+@keyframes orbit{to{transform:rotate(360deg)}}
+.sweep{
+  position:absolute;width:60%;height:160%;left:-80%;top:-30%;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.22),transparent 68%);
+  transform:rotate(18deg);animation:sweep 4.8s ease-in-out infinite
+}
+@keyframes sweep{0%{left:-80%;opacity:0}35%{opacity:.55}70%,100%{left:120%;opacity:0}}
+.logo-box{
+  position:relative;z-index:4;width:min(430px,78%);aspect-ratio:1/1;
+  display:grid;place-items:center;transform-style:preserve-3d;
+  animation:autoFloat 6s ease-in-out infinite,autoRotate 14s linear infinite;
+  transition:transform .12s ease-out;will-change:transform
+}
+.logo-box:before{
+  content:"";position:absolute;inset:12%;border-radius:50%;
+  background:radial-gradient(circle,rgba(242,210,123,.35),transparent 62%);
+  filter:blur(28px);transform:translateZ(-60px)
+}
+.logo-box img{
+  width:100%;height:100%;object-fit:contain;
+  filter:drop-shadow(0 42px 40px rgba(0,0,0,.6))
+         drop-shadow(0 0 22px rgba(242,210,123,.4))
+         brightness(1.15) contrast(1.12)
+}
+@keyframes autoFloat{0%,100%{translate:0 0}50%{translate:0 -16px}}
+@keyframes autoRotate{from{rotate:y 0deg}to{rotate:y 360deg}}
+.stage-caption{position:absolute;bottom:28px;color:rgba(242,210,123,.78);letter-spacing:6px;font-size:12px;font-weight:900}
 
-/* 후기 슬라이드 */
-.slider{
-  display:flex;
-  overflow-x:auto;
-  gap:20px;
-  scroll-snap-type:x mandatory;
+/* COMMON */
+.section-head{max-width:760px;margin-bottom:42px}
+.card{
+  background:var(--card);border:1px solid var(--line);border-radius:28px;
+  padding:30px;transition:.32s;box-shadow:0 15px 45px rgba(0,0,0,.16)
 }
-.slide{
-  min-width:300px;
-  background:#111827;
-  padding:20px;
-  border-radius:20px;
-  scroll-snap-align:start;
-}
+.card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 25px 60px rgba(201,164,92,.18)}
 
-/* 지원 */
-.apply{
-  text-align:center;
+/* STATS */
+.stats{margin-top:-70px;position:relative;z-index:4}
+.stats-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  background:#101722;border:1px solid var(--line);border-radius:30px;overflow:hidden;
+  box-shadow:0 24px 80px rgba(0,0,0,.25)
 }
-.apply a{
-  display:inline-block;
-  margin-top:20px;
-  padding:16px 30px;
-  background:linear-gradient(135deg,#f2d27b,#c9a45c);
-  color:#000;
-  border-radius:12px;
-  text-decoration:none;
-}
+.stat{padding:28px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{font-size:28px;display:block;margin-bottom:8px;color:var(--gold2)}
+.stat span{color:var(--muted);font-weight:700}
 
-/* 반응형 */
-@media(max-width:900px){
-  .hero{flex-direction:column;height:auto;padding:120px 20px;}
-  .hero-text{text-align:center;}
-  .logo-stage{width:280px;height:280px;margin-top:40px;}
+/* INCOME */
+.income-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:24px}
+.income-tabs{display:grid;gap:14px}
+.income-tabs button{
+  text-align:left;border:1px solid var(--line);background:#101722;color:#fff;
+  border-radius:22px;padding:24px;cursor:pointer;transition:.28s;font-weight:950;font-size:20px
+}
+.income-tabs small{display:block;color:var(--muted);margin-top:8px;font-weight:700}
+.income-tabs button.active{
+  background:linear-gradient(135deg,#151f30,#090d14);
+  color:var(--gold2);border-color:var(--gold);transform:translateX(8px);
+  box-shadow:0 22px 52px rgba(0,0,0,.35)
+}
+.income-card{border-top:5px solid var(--gold);background:radial-gradient(circle at 85% 15%,rgba(242,210,123,.16),transparent 30%),var(--card)}
+.sales-row{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:1px dashed rgba(255,255,255,.16);padding-bottom:24px;margin-bottom:20px}
+.sales-row b{font-size:46px;color:var(--gold2)}
+.income-row{display:flex;justify-content:space-between;gap:18px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+.income-result{margin-top:28px;border-radius:26px;padding:30px;text-align:center;background:linear-gradient(135deg,#fff6d9,#d9b56a);color:#111}
+.income-result strong{font-size:42px;display:block;margin-top:10px}
+
+/* PHILOSOPHY */
+.dark-section{background:#101722;position:relative;overflow:hidden}
+.dark-section:before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(circle at 10% 10%,rgba(242,210,123,.12),transparent 32%),
+             radial-gradient(circle at 90% 85%,rgba(201,164,92,.1),transparent 34%)
+}
+.dark-section .wrap{position:relative;z-index:2}
+.philosophy-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.number{color:var(--gold2);font-weight:950;letter-spacing:2px;margin-bottom:18px;display:block}
+
+/* LEVEL */
+.system-board{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.level-price{color:var(--gold2);font-size:28px;font-weight:950;margin:12px 0}
+
+/* FEATURES */
+.features-list{display:grid;gap:16px}
+.feature-item{display:flex;gap:18px;align-items:center}
+.icon,.doc-num{
+  width:56px;height:56px;border-radius:18px;flex:0 0 auto;
+  background:#241f18;color:var(--gold2);display:grid;place-items:center;font-weight:950;transition:.28s
+}
+.feature-item:hover .icon,.doc-card:hover .doc-num{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111;transform:scale(1.08)}
+
+/* BOOK */
+.brand-story{display:grid;grid-template-columns:.95fr 1.05fr;gap:28px;align-items:center}
+.book-card{border-radius:34px;overflow:hidden;background:#06080c;border:1px solid rgba(201,164,92,.3)}
+.book-visual{padding:44px 24px;display:grid;place-items:center;background:radial-gradient(circle at 50% 35%,rgba(242,210,123,.2),transparent 35%),linear-gradient(135deg,#05070b,#202020)}
+.book-visual img{width:min(430px,90%);border-radius:12px;box-shadow:0 25px 55px rgba(0,0,0,.38);transition:.36s}
+.book-card:hover img{transform:translateY(-10px) rotate(-1deg) scale(1.025)}
+.story-link{margin-top:22px;display:inline-flex;color:var(--gold2);font-weight:950}
+
+/* BRANCH */
+.branch-card{display:grid;grid-template-columns:1fr .9fr;border-radius:34px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:.32s}
+.branch-card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 28px 80px rgba(201,164,92,.18)}
+.branch-img{min-height:360px;overflow:hidden}
+.branch-img img{width:100%;height:100%;object-fit:cover;transition:.5s}
+.branch-card:hover .branch-img img{transform:scale(1.05)}
+.branch-info{padding:42px;display:flex;flex-direction:column;justify-content:center}
+.map-btn{margin-top:20px;display:inline-flex;width:fit-content;padding:15px 20px;border-radius:16px;background:#241f18;color:var(--gold2);font-weight:950;transition:.28s}
+.map-btn:hover{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111;transform:translateY(-4px)}
+
+/* REVIEW */
+.review-slider{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 0 10px;cursor:grab}
+.review-slider::-webkit-scrollbar{display:none}
+.review-card{min-width:410px;max-width:410px;scroll-snap-align:center}
+.profile{display:flex;gap:15px;align-items:center;margin-bottom:18px}
+.profile-circle{width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,var(--gold2),var(--gold));display:grid;place-items:center;font-weight:950;color:#111}
+.quote{border-left:4px solid var(--gold);padding-left:18px;color:#d7dce5;line-height:1.8}
+
+/* DOC */
+.doc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.doc-card{display:flex;gap:16px}
+
+/* APPLY */
+.apply{text-align:center;background:radial-gradient(circle at 30% 10%,rgba(242,210,123,.16),transparent 30%),#101722}
+.download-box{
+  max-width:660px;margin:34px auto 18px;padding:25px;border-radius:24px;
+  border:1px dashed rgba(242,210,123,.5);background:rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:space-between;transition:.32s
+}
+.download-box:hover{transform:translateY(-7px);border-color:var(--gold2);box-shadow:0 22px 55px rgba(242,210,123,.16)}
+.download-box small{display:block;color:var(--gold2);font-weight:950;margin-bottom:6px;text-align:left}
+.apply-btn{
+  max-width:660px;margin:18px auto 28px;display:block;padding:24px;border-radius:24px;
+  background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111;font-weight:950;font-size:22px;transition:.32s
+}
+.apply-btn:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 32px 75px rgba(201,164,92,.42)}
+.apply-note{max-width:660px;margin:0 auto;padding:26px;border-radius:24px;background:rgba(255,255,255,.06);color:#d1d5db;line-height:1.9}
+footer{background:#05070b;text-align:center;padding:52px 20px;border-top:1px solid var(--line)}
+footer p{margin-top:8px}
+
+/* MOBILE */
+@media(max-width:820px){
+  section{padding:74px 0}
+  .hero{min-height:auto;padding:120px 0 72px}
+  .hero-grid,.income-layout,.brand-story,.branch-card{grid-template-columns:1fr}
+  .logo-stage{height:420px;border-radius:34px}
+  .orbit.one{width:300px;height:300px}
+  .orbit.two{width:230px;height:230px}
+  .logo-box{width:min(300px,76%)}
+  .stats{margin-top:0;padding-top:28px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat:nth-child(2){border-right:0}
+  .philosophy-grid,.system-board,.doc-grid{grid-template-columns:1fr}
+  .income-tabs button.active{transform:none}
+  .review-card{min-width:86%;max-width:86%}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#">
+      <img src="logo.webp.png" alt="EVERY PT logo">
+      EVERY PT
+    </a>
+    <a class="nav-btn" href="#apply">파트너 지원</a>
+  </div>
+</nav>
+
 <section class="hero">
-  <div class="hero-text">
-    <h1>
-      수업을 잘하는<br>
-      트레이너를 넘어,<br>
-      <span>브랜드가 되는</span><br>
-      트레이너로.
-    </h1>
-
-    <p>
-      수업, 상담, 회원관리, 브랜딩까지 함께 설계하는
-      트레이너 성장 시스템
-    </p>
-
-    <div class="btn-wrap">
-      <a href="everypt-application.docx.doxc" class="btn btn-primary" download>지원서 다운로드</a>
-      <a href="https://litt.ly/everypt" target="_blank" class="btn btn-secondary">브랜드 보기</a>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="eyebrow">EVERY PT TRAINER PARTNER</div>
+      <h1>
+        수업을 잘하는<br>
+        트레이너를 넘어,<br>
+        <span>브랜드가 되는</span><br>
+        트레이너로.
+      </h1>
+      <p>
+        에브리피티는 단순한 출강 공간이 아닙니다.
+        수업, 상담, 회원 관리, 브랜딩까지 함께 설계하며
+        오래 성장할 수 있는 트레이너 파트너십을 만듭니다.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#apply">지원서 다운로드 →</a>
+        <a class="btn btn-secondary" href="https://litt.ly/everypt" target="_blank">브랜드 스토리 보기</a>
+      </div>
     </div>
-  </div>
 
-  <div class="logo-stage">
-    <div class="glow"></div>
-
-    <div class="logo-box" id="logoBox">
-      <img src="logo.webp.png">
-    </div>
-  </div>
-</section>
-
-<!-- 시스템 -->
-<section class="section">
-  <div class="title">트레이너 <span>성장 시스템</span></div>
-
-  <div class="card">전문 실무 교육 (운동 + 상담 + 프로그램 설계)</div>
-  <div class="card">브랜딩 / SNS / 개인 수익 구조 설계</div>
-  <div class="card">AI 활용 교육 + 자동화 시스템</div>
-</section>
-
-<!-- 지점 -->
-<section class="section">
-  <div class="title">채용 중 <span>지점</span></div>
-
-  <div class="branch">
-    <img src="branch.jpg.jpg">
-    <div class="branch-info">
-      <h3>미아점</h3>
-      <p>서울 강북구</p>
-      <a href="https://naver.me/xf5A9rE1" target="_blank" class="map-btn">지도 보기</a>
+    <div class="logo-stage" id="logoStage">
+      <div class="orbit one"></div>
+      <div class="orbit two"></div>
+      <div class="sweep"></div>
+      <div class="logo-box" id="logoBox">
+        <img src="logo.webp.png" alt="EVERY PT logo">
+      </div>
+      <div class="stage-caption">MOVE · HOVER · ROTATE</div>
     </div>
   </div>
 </section>
 
-<!-- 후기 -->
-<section class="section">
-  <div class="title">먼저 합류한 <span>동료들</span></div>
+<div class="stats">
+  <div class="wrap">
+    <div class="stats-grid">
+      <div class="stat"><b>1:1급</b><span>소수정예 수업 환경</span></div>
+      <div class="stat"><b>Level</b><span>성장형 수업료 구조</span></div>
+      <div class="stat"><b>Brand</b><span>개인 브랜딩 지원</span></div>
+      <div class="stat"><b>Partner</b><span>운영 참여 가능성</span></div>
+    </div>
+  </div>
+</div>
 
-  <div class="slider">
-    <div class="slide">"단순 수업이 아닌 성장 시스템"</div>
-    <div class="slide">"브랜딩까지 배울 수 있음"</div>
-    <div class="slide">"내 커리어가 바뀜"</div>
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>수업 횟수에 따른<br><span class="gold">예상 파트너 수익</span></h2>
+      <p>단순한 급여표가 아니라, 수업 역량과 운영 기여도가 반영되는 성장형 구조입니다.</p>
+    </div>
+
+    <div class="income-layout">
+      <div class="income-tabs">
+        <button onclick="changeIncome(100)" id="tab100" class="active">100회<small>기본 안정 구간</small></button>
+        <button onclick="changeIncome(130)" id="tab130">130회<small>성장 가속 구간</small></button>
+        <button onclick="changeIncome(160)" id="tab160">160회<small>핵심 파트너 구간</small></button>
+      </div>
+
+      <div class="card income-card">
+        <div class="sales-row"><span>월 매출 기준</span><b id="sales">550만원</b></div>
+        <div class="income-row"><span>수업료</span><strong id="fee">200~300만원</strong></div>
+        <div class="income-row"><span>마케팅 지원금</span><strong>30~50만원</strong></div>
+        <div class="income-row"><span>인센티브</span><strong id="bonus">16.5만원 (3%)</strong></div>
+        <div class="income-result">예상 월 수령액<strong id="total">247~367만원</strong></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- 지원 -->
-<section class="section apply" id="apply">
-  <div class="title">지금 시작하세요</div>
+<section class="dark-section">
+  <div class="wrap">
+    <div class="section-head">
+      <h2>에브리피티가 찾는 사람은<br>단순한 강사가 아닙니다.</h2>
+      <p>우리는 수업을 맡기는 관계가 아니라, 함께 성장하는 파트너십을 지향합니다.</p>
+    </div>
 
-  <a href="everypt-application.docx.doxc" download>지원서 다운로드</a>
-  <br>
-  <a href="http://pf.kakao.com/_QERxeG/chat" target="_blank">카카오톡 지원하기</a>
+    <div class="philosophy-grid">
+      <div class="card"><span class="number">01 / TEACHING</span><h3>수업의 밀도</h3><p>정해진 루틴 반복이 아니라 회원 상태와 목적에 맞는 코칭을 설계합니다.</p></div>
+      <div class="card"><span class="number">02 / CARE</span><h3>회원 관리력</h3><p>운동 시간뿐 아니라 상담, 피드백, 지속률까지 전문성으로 봅니다.</p></div>
+      <div class="card"><span class="number">03 / BRAND</span><h3>개인 브랜드</h3><p>트레이너가 센터 안에서만 소비되지 않고 자신의 자산을 쌓도록 돕습니다.</p></div>
+    </div>
+  </div>
 </section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>LEVEL UP SYSTEM</h2>
+      <p>시간이 지나면 자동으로 올라가는 구조가 아니라, 실력과 신뢰가 쌓일수록 역할이 넓어지는 구조입니다.</p>
+    </div>
+
+    <div class="system-board">
+      <div class="card"><h3>INTERN PARTNER</h3><div class="level-price">클래스당 15,000원</div><p>센터 시스템 적응, 기본 코치 검토, 회원 응대 기준 습득 단계</p></div>
+      <div class="card"><h3>JUNIOR PARTNER</h3><div class="level-price">클래스당 20,000원</div><p>독립 클래스 운영, 회원 케어, 수업 품질 안정화 단계</p></div>
+      <div class="card"><h3>SENIOR PARTNER</h3><div class="level-price">클래스당 25,000원</div><p>핵심 파트너 성장, 프로그램 제안, 신규 코치 서포트 단계</p></div>
+      <div class="card"><h3>MASTER PARTNER</h3><div class="level-price">역량 기반 협의</div><p>운영 참여, 교육 시스템 구축, 지점 성장에 기여하는 단계</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>수업 역량과<br><span class="gold">비즈니스 역량</span>을 함께 기릅니다.</h2>
+      <p>좋은 트레이너가 오래 성장하려면 수업만 잘해서는 부족합니다.</p>
+    </div>
+
+    <div class="features-list">
+      <div class="card feature-item"><div class="icon">01</div><div><h3>전문 실무 역량</h3><p>트레이닝 기획, 자세·통증 분석, 고객별 프로그램 설계</p></div></div>
+      <div class="card feature-item"><div class="icon">02</div><div><h3>상담과 세일즈 프로세스</h3><p>억지 영업이 아닌, 고객의 필요를 구조화하는 상담 방식</p></div></div>
+      <div class="card feature-item"><div class="icon">03</div><div><h3>AI 기반 업무 효율화</h3><p>운동 기록, 상담 메모, 회원 관리, 콘텐츠 제작 실무 활용</p></div></div>
+      <div class="card feature-item"><div class="icon">04</div><div><h3>개인 브랜딩 지원</h3><p>프로필, 콘텐츠, SNS, 상담 자산까지 함께 설계</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="dark-section">
+  <div class="wrap brand-story">
+    <div class="book-card">
+      <div class="book-visual">
+        <img src="book.jpg.jpg" alt="말의 공식 책 이미지">
+      </div>
+    </div>
+
+    <div>
+      <div class="eyebrow">FOUNDER'S PHILOSOPHY</div>
+      <h2>대표가 직접 만든<br><span class="gold">성장 언어와 상담 시스템</span></h2>
+      <p>에브리피티는 단순히 수업을 배정하는 공간이 아니라, 트레이너가 고객을 이해하고 자신의 커리어를 말로 표현할 수 있도록 돕는 공간입니다.</p>
+      <p>『말의 공식』을 기반으로 상담, 세일즈, 회원 관리, 콘텐츠 언어까지 함께 다듬습니다.</p>
+      <a class="story-link" href="https://litt.ly/everypt" target="_blank">대표 스토리 자세히 보기 →</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>지금 채용 중인 지점</h2>
+      <p>서울 강북구 수유역 인근, 에브리피티 수유점에서 함께할 트레이너 파트너를 찾고 있습니다.</p>
+    </div>
+
+    <div class="branch-card">
+      <div class="branch-img"><img src="branch.jpg.jpg" alt="에브리피티 수유점"></div>
+      <div class="branch-info">
+        <h3>EVERY PT 수유점</h3>
+        <p><b>지역</b> 서울 강북구 수유역 인근</p>
+        <p><b>채용</b> 프리랜서 그룹PT 트레이너</p>
+        <p><b>방향</b> 수업·상담·회원관리·브랜딩 성장형 파트너십</p>
+        <a class="map-btn" href="https://naver.me/xf5A9rE1" target="_blank">네이버 지도에서 위치 보기 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>먼저 합류한<br><span class="gold">동료들의 이야기</span></h2>
+      <p>좌우로 넘겨 보세요.</p>
+    </div>
+
+    <div class="review-slider">
+      <div class="card review-card"><div class="profile"><div class="profile-circle">상</div><div><h3>이상민</h3><p>팀장</p></div></div><div class="quote">단순히 정해진 수업만 반복하는 공간이 아니라, 구성원의 시도와 아이디어가 팀의 시스템으로 발전하는 곳이에요.</div></div>
+      <div class="card review-card"><div class="profile"><div class="profile-circle">승</div><div><h3>이승원</h3><p>점장</p></div></div><div class="quote">목적 없이 수업만 하던 시절에는 성장의 즐거움을 몰랐어요. 에브리피티에서 커리어를 설계할 수 있다는 확신이 생겼어요.</div></div>
+      <div class="card review-card"><div class="profile"><div class="profile-circle">정</div><div><h3>박정현</h3><p>대표원장</p></div></div><div class="quote">좋은 트레이너가 오래 성장할 수 있는 구조를 만들고 싶었습니다. 수업, 상담, 운영까지 함께 성장하는 공간을 지향합니다.</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <h2>첨부 시 가산점을<br>드리는 서류입니다.</h2>
+      <p>필수는 아니지만, 아래 자료를 함께 제출해 주시면 지원 검토에 도움이 됩니다.</p>
+    </div>
+
+    <div class="doc-grid">
+      <div class="card doc-card"><div class="doc-num">01</div><div><h3>이전 직장 추천서</h3><p>전 근무지 관리자·대표 추천서</p></div></div>
+      <div class="card doc-card"><div class="doc-num">02</div><div><h3>경력 증명서</h3><p>재직 기간·담당 업무 확인용</p></div></div>
+      <div class="card doc-card"><div class="doc-num">03</div><div><h3>포트폴리오</h3><p>프로그램 설계·콘텐츠·교육 자료</p></div></div>
+      <div class="card doc-card"><div class="doc-num">04</div><div><h3>회원 관리 기록</h3><p>상담 기록·프로그램 관리 샘플</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="apply" id="apply">
+  <div class="wrap">
+    <h2>에브리피티와 함께<br><span class="gold">트레이너 커리어를 설계할 준비</span>가 됐나요?</h2>
+    <p>지원서 작성 후 카카오톡 채널로 이름과 지원 포지션을 남겨주세요.</p>
+
+    <a class="download-box" href="everypt-application.docx.docx" download>
+      <div>
+        <small>STEP 01</small>
+        <strong>지원서 양식 다운로드</strong>
+      </div>
+      <strong>↓</strong>
+    </a>
+
+    <a class="apply-btn" href="http://pf.kakao.com/_QERxeG/chat" target="_blank">
+      STEP 02. 카카오톡으로 지원하기 →
+    </a>
+
+    <div class="apply-note">
+      제출 후 <b class="gold">카카오톡 채널</b>로<br>
+      “이름 / 지원 포지션 / 경력사항”을 남겨주시면 빠르게 연락드리겠습니다.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <h3>EVERY PT TRAINER PARTNER</h3>
+  <p>수업을 넘어, 커리어와 브랜드를 함께 설계합니다.</p>
+</footer>
 
 <script>
-const logo = document.getElementById("logoBox");
+const incomeData={
+  100:{sales:"550만원",fee:"200~300만원",bonus:"16.5만원 (3%)",total:"247~367만원"},
+  130:{sales:"715만원",fee:"260~390만원",bonus:"28.6만원 (4%)",total:"319~469만원"},
+  160:{sales:"880만원",fee:"320~480만원",bonus:"44만원 (5%)",total:"394~574만원"}
+};
+function changeIncome(count){
+  document.getElementById("sales").innerText=incomeData[count].sales;
+  document.getElementById("fee").innerText=incomeData[count].fee;
+  document.getElementById("bonus").innerText=incomeData[count].bonus;
+  document.getElementById("total").innerText=incomeData[count].total;
+  [100,130,160].forEach(num=>document.getElementById("tab"+num).classList.remove("active"));
+  document.getElementById("tab"+count).classList.add("active");
+}
 
-/* 마우스 3D */
-document.addEventListener("mousemove",(e)=>{
-  const x=(e.clientX/window.innerWidth-0.5)*20;
-  const y=(e.clientY/window.innerHeight-0.5)*-20;
-
-  logo.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`;
-});
+const stage=document.getElementById("logoStage");
+const logo=document.getElementById("logoBox");
+if(stage&&logo){
+  stage.addEventListener("mousemove",(e)=>{
+    const rect=stage.getBoundingClientRect();
+    const x=e.clientX-rect.left;
+    const y=e.clientY-rect.top;
+    const mx=(x/rect.width)*100;
+    const my=(y/rect.height)*100;
+    stage.style.setProperty("--mx",mx+"%");
+    stage.style.setProperty("--my",my+"%");
+    const rotateY=((x-rect.width/2)/rect.width)*28;
+    const rotateX=-((y-rect.height/2)/rect.height)*22;
+    logo.style.animation="none";
+    logo.style.transform=`rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) scale(1.045)`;
+  });
+  stage.addEventListener("mouseleave",()=>{
+    stage.style.setProperty("--mx","50%");
+    stage.style.setProperty("--my","50%");
+    logo.style.transform="";
+    logo.style.animation="autoFloat 6s ease-in-out infinite,autoRotate 14s linear infinite";
+  });
+}
 </script>
 
 </body>
