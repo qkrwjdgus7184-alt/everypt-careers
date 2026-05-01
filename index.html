@@ -1,12 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EVERYPT CAREERS</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Arial, sans-serif; background:#f8f3eb; color:#111; }
+    section { padding:70px 22px; }
+    .dark { background:#222; color:white; }
+    .wrap { max-width:900px; margin:auto; }
+    h1 { font-size:42px; line-height:1.15; margin:0 0 30px; font-weight:900; }
+    h2 { font-size:32px; line-height:1.25; margin:0 0 20px; font-weight:900; }
+    h3 { font-size:22px; margin:0 0 12px; }
+    p { line-height:1.7; }
+    .yellow { color:#ffd21f; }
+    .orange { color:#ff8a00; }
+    .hero {
+      min-height:620px;
+      background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.85)), url('https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=1600') center/cover;
+      color:white;
+      display:flex;
+      align-items:center;
+    }
+    .check { margin:14px 0; font-weight:700; }
+    .card {
+      background:white;
+      border-radius:22px;
+      padding:28px;
+      margin:18px 0;
+      box-shadow:0 8px 25px rgba(0,0,0,.08);
+      border:1px solid #eee;
+    }
+    .dark .card { background:#303030; color:white; border-color:#444; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .income-tabs { display:flex; background:white; border-radius:18px; padding:8px; gap:8px; margin:25px 0; }
+    .income-tabs div { flex:1; padding:18px 8px; text-align:center; border-radius:14px; font-weight:900; }
+    .active { background:#222; color:#ffd21f; }
+    .income-box { text-align:center; background:linear-gradient(135deg,#fff5cf,#fff0df); border-radius:22px; padding:30px; }
+    .price { font-size:38px; font-weight:900; color:#ff8a00; }
+    .photo-grid { display:grid; grid-template-columns:1fr 1fr; gap:6px; }
+    .photo-grid img { width:100%; height:210px; object-fit:cover; }
+    .level { border-left:6px solid #ffd21f; padding-left:18px; margin:24px 0; }
+    .bonus { display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+    .cta {
+      display:block;
+      text-align:center;
+      background:linear-gradient(90deg,#ffd21f,#ff8a00);
+      color:#111;
+      padding:22px;
+      border-radius:18px;
+      font-size:22px;
+      font-weight:900;
+      text-decoration:none;
+      margin-top:30px;
+    }
+    footer { background:#222; color:white; text-align:center; padding:50px 20px; }
+    @media(max-width:700px){
+      h1{font-size:34px;}
+      h2{font-size:28px;}
+      .grid,.bonus{grid-template-columns:1fr;}
+      .photo-grid img{height:170px;}
+      section{padding:55px 18px;}
+    }
+  </style>
 </head>
 <body>
-  <h1>에브리피티 채용 페이지</h1>
-  <p>사이트 연결 테스트 성공</p>
-  <a href="http://pf.kakao.com/_QERxeG/chat">카카오톡 지원하기</a>
+
+<section class="hero">
+  <div class="wrap">
+    <h1>트레이너로서<br><span class="yellow">수업과 성장</span>에만<br>집중할 수 있어요.</h1>
+    <p class="yellow"><b>WE BUILD YOUR CAREER</b></p>
+    <p class="check">✅ 실무 역량과 비즈니스 역량을 함께 길러요</p>
+    <p class="check">✅ 성장할수록 수업료가 오르는 구조</p>
+    <p class="check">✅ 트레이너 → 팀장 → 교육강사 → 지점장까지 이어지는 커리어 로드맵</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>숫자로 확인하세요<br>수업 수에 따른 <span class="orange">예상 월 수입</span></h2>
+    <p>월 수업 횟수에 따라 예상 수령액을 확인해보세요.</p>
+
+    <div class="income-tabs">
+      <div>100회<br><small>월 수업</small></div>
+      <div>130회<br><small>월 수업</small></div>
+      <div class="active">160회<br><small>월 수업</small></div>
+    </div>
+
+    <div class="card">
+      <h3>월 매출 기준</h3>
+      <p class="price">약 320만원</p>
+      <p>수업료 기준: 클래스당 15,000원 ~ 25,000원</p>
+      <div class="income-box">
+        <b>예상 월 수령액</b>
+        <div class="price">240~480만원</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <h2>혹시 이런 <span class="yellow">고민</span>,<br>해보신 적 있으세요?</h2>
+
+    <div class="card">
+      <h3>수업만 반복하다 보니 성장이 멈춘 느낌</h3>
+      <p>에브리피티는 수업뿐 아니라 상담, 회원관리, 브랜딩, 운영 역량까지 함께 성장할 수 있는 구조를 만듭니다.</p>
+    </div>
+
+    <div class="card">
+      <h3>열심히 해도 단가가 그대로인 구조</h3>
+      <p>레벨 시스템과 인센티브 구조를 통해 성장한 만큼 보상이 올라갈 수 있도록 설계했습니다.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>에브리피티 공간</h2>
+    <div class="photo-grid">
+      <img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=1200">
+      <img src="https://images.unsplash.com/photo-1593079831268-3381b0db4a77?q=80&w=1200">
+      <img src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?q=80&w=1200">
+      <img src="https://images.unsplash.com/photo-1534258936925-c58bed479fcb?q=80&w=1200">
+    </div>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <h2><span class="yellow">LEVEL UP SYSTEM</span></h2>
+
+    <div class="grid">
+      <div class="card level">
+        <h3>🌱 INTERN LEVEL</h3>
+        <p><b>클래스당 15,000원</b></p>
+        <p>최소 활동기간 3개월<br>센터 시스템 적응 및 기본 코치 검토 단계</p>
+      </div>
+
+      <div class="card level">
+        <h3>🔥 JUNIOR LEVEL</h3>
+        <p><b>클래스당 20,000원</b></p>
+        <p>최소 활동기간 3개월<br>독립 클래스 운영 및 회원 케어 단계</p>
+      </div>
+
+      <div class="card level">
+        <h3>⭐ SENIOR LEVEL</h3>
+        <p><b>클래스당 25,000원</b></p>
+        <p>최소 활동기간 6개월<br>핵심 파트너 성장 단계</p>
+      </div>
+
+      <div class="card level">
+        <h3>👑 MASTER LEVEL</h3>
+        <p><b>역량 기반 별도 협의</b></p>
+        <p>운영 참여 및 신규 코치 교육 단계</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2><span class="orange">BONUS SYSTEM</span></h2>
+
+    <div class="bonus">
+      <div class="card">
+        <h3>회원 만족도 인센티브</h3>
+        <p>3.0~3.5 → 2%</p>
+        <p>3.5~4.0 → 4%</p>
+        <p>4.0~4.5 → 6%</p>
+        <p><b>4.5~5.0 → 8%</b></p>
+      </div>
+
+      <div class="card">
+        <h3>클래스 수행량 인센티브</h3>
+        <p>50회+ → 2%</p>
+        <p>100회+ → 4%</p>
+        <p>150회+ → 6%</p>
+        <p><b>200회+ → 8%</b></p>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>최대 월 12% 추가 인센티브 지급</h3>
+      <p>성과 우수 파트너는 별도 리워드 협의가 가능합니다.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>근무 조건</h2>
+    <div class="card">
+      <h3>근무 시간</h3>
+      <p><b>평일 저녁 수업 중심</b><br>18시 / 19시 / 20시 / 21시 시간대 협의</p>
+    </div>
+    <div class="card">
+      <h3>담당 업무</h3>
+      <p>그룹 PT 클래스 진행 / 회원 운동 코칭 / 피드백 관리 / 수업 후 간단 정리 및 소독</p>
+    </div>
+    <div class="card">
+      <h3>지원 자격</h3>
+      <p>생활스포츠지도사 2급, NASM, 건강운동관리사, 체육 전공자 중 1개 이상 우대</p>
+    </div>
+  </div>
+</section>
+
+<section class="dark" id="apply">
+  <div class="wrap">
+    <h2>에브리피티와 함께<br><span class="yellow">커리어를 설계할 준비</span>가 됐나요?</h2>
+    <p>카카오톡 채널로 이름 / 지원 포지션 / 경력사항을 남겨주세요.</p>
+    <a class="cta" href="http://pf.kakao.com/_QERxeG/chat">카카오톡으로 지원하기 →</a>
+  </div>
+</section>
+
+<footer>
+  <h3>EVERYPT CAREERS</h3>
+  <p>당신의 수업과 성장을 함께 설계합니다.</p>
+</footer>
+
 </body>
 </html>
