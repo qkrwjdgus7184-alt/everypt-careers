@@ -6,191 +6,200 @@
 <title>EVERY PT CAREERS</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  background:#05070b;
+  color:#fff;
+  font-family:-apple-system,BlinkMacSystemFont,"Pretendard",sans-serif;
+  overflow-x:hidden;
 }
 
-body {
-  background: #05070b;
-  color: #fff;
-  font-family: -apple-system, BlinkMacSystemFont, "Pretendard", sans-serif;
-  overflow-x: hidden;
-}
-
-/* 히어로 */
-.hero {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10%;
+/* ================= HERO ================= */
+.hero{
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 8%;
+  position:relative;
   background:
-    radial-gradient(circle at 70% 30%, rgba(201,164,92,.25), transparent 30%),
-    linear-gradient(135deg, #05070b, #111827);
+    radial-gradient(circle at 70% 30%, rgba(201,164,92,.3), transparent 30%),
+    linear-gradient(135deg,#05070b,#111827);
 }
 
 /* 텍스트 */
-.hero-text {
-  position: absolute;
-  left: 10%;
-  max-width: 520px;
-  z-index: 2;
+.hero-text{max-width:520px;}
+.hero-text h1{
+  font-size:52px;
+  line-height:1.3;
+  font-weight:900;
 }
+.hero-text span{color:#c9a45c;}
 
-.hero-text h1 {
-  font-size: 52px;
-  line-height: 1.3;
-  font-weight: 900;
-}
-
-.hero-text h1 span {
-  color: #c9a45c;
-}
-
-.hero-text p {
-  margin-top: 20px;
-  color: #ccc;
-  line-height: 1.6;
+.hero-text p{
+  margin-top:20px;
+  color:#ccc;
+  line-height:1.6;
 }
 
 /* 버튼 */
-.btn-wrap {
-  margin-top: 30px;
-  display: flex;
-  gap: 15px;
+.btn-wrap{margin-top:30px;display:flex;gap:15px;}
+
+.btn{
+  padding:14px 26px;
+  border-radius:12px;
+  text-decoration:none;
+  font-weight:600;
+  transition:.3s;
 }
 
-.btn {
-  padding: 14px 24px;
-  border-radius: 12px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: .3s;
+.btn-primary{
+  background:linear-gradient(135deg,#f2d27b,#c9a45c);
+  color:#000;
+}
+.btn-primary:hover{
+  transform:translateY(-3px);
+  box-shadow:0 10px 30px rgba(242,210,123,.4);
 }
 
-.btn-primary {
-  background: linear-gradient(135deg, #f2d27b, #c9a45c);
-  color: #000;
+.btn-secondary{
+  border:1px solid rgba(255,255,255,.3);
+  color:#fff;
+}
+.btn-secondary:hover{
+  background:rgba(255,255,255,.05);
 }
 
-.btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(242,210,123,.3);
+/* ================= 3D LOGO ================= */
+.logo-stage{
+  width:420px;height:420px;
+  display:flex;align-items:center;justify-content:center;
+  perspective:1200px;
+  position:relative;
 }
 
-.btn-secondary {
-  border: 1px solid rgba(255,255,255,.3);
-  color: #fff;
+.logo-box{
+  width:100%;height:100%;
+  transform-style:preserve-3d;
+  animation:rotate360 18s linear infinite;
+  transition:transform .1s;
 }
 
-.btn-secondary:hover {
-  background: rgba(255,255,255,.05);
-}
-
-/* 로고 영역 */
-.logo-stage {
-  width: 420px;
-  height: 420px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  perspective: 1200px;
-}
-
-.logo-box {
-  width: 100%;
-  height: 100%;
-  transform-style: preserve-3d;
-  animation: rotate360 18s linear infinite;
-  transition: transform .1s;
-}
-
-.logo-box img {
-  width: 100%;
+.logo-box img{
+  width:100%;
   filter:
     drop-shadow(0 30px 40px rgba(0,0,0,.6))
-    drop-shadow(0 0 20px rgba(201,164,92,.3));
+    drop-shadow(0 0 25px rgba(201,164,92,.4));
 }
 
-/* 자동 회전 */
-@keyframes rotate360 {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
+/* 자동회전 */
+@keyframes rotate360{
+  from{transform:rotateY(0deg);}
+  to{transform:rotateY(360deg);}
 }
 
-/* 떠있는 느낌 */
-.logo-box::before {
-  content: "";
-  position: absolute;
-  inset: 20%;
-  background: radial-gradient(circle, rgba(201,164,92,.4), transparent);
-  filter: blur(30px);
-  transform: translateZ(-80px);
+/* 빛 */
+.glow{
+  position:absolute;
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(242,210,123,.5),transparent);
+  filter:blur(60px);
+  animation:glowMove 6s infinite alternate;
 }
 
-/* 배경 빛 */
-.glow {
-  position: absolute;
-  width: 300px;
-  height: 300px;
-  background: radial-gradient(circle, rgba(242,210,123,.4), transparent);
-  filter: blur(60px);
-  animation: glowMove 6s infinite alternate;
+@keyframes glowMove{
+  from{transform:translate(-30px,-20px);}
+  to{transform:translate(40px,20px);}
 }
 
-@keyframes glowMove {
-  from { transform: translate(-30px, -20px); }
-  to { transform: translate(40px, 20px); }
+/* ================= SECTION ================= */
+.section{
+  padding:120px 8%;
 }
 
-/* 스크롤 애니메이션 */
-.fade-up {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: 1s;
+.title{
+  font-size:36px;
+  margin-bottom:30px;
+}
+.title span{color:#c9a45c;}
+
+.card{
+  background:#111827;
+  border-radius:20px;
+  padding:30px;
+  margin-bottom:20px;
+  transition:.3s;
+  border:1px solid rgba(255,255,255,.08);
+}
+.card:hover{
+  transform:translateY(-8px);
+  border-color:#c9a45c;
 }
 
-.fade-up.show {
-  opacity: 1;
-  transform: translateY(0);
+/* 지점 */
+.branch{
+  display:flex;
+  gap:20px;
+  background:#111827;
+  border-radius:20px;
+  overflow:hidden;
+}
+.branch img{width:50%;object-fit:cover;}
+.branch-info{padding:30px;}
+
+.map-btn{
+  margin-top:15px;
+  display:inline-block;
+  padding:10px 18px;
+  border-radius:10px;
+  background:#c9a45c;
+  color:#000;
+  text-decoration:none;
+}
+
+/* 후기 슬라이드 */
+.slider{
+  display:flex;
+  overflow-x:auto;
+  gap:20px;
+  scroll-snap-type:x mandatory;
+}
+.slide{
+  min-width:300px;
+  background:#111827;
+  padding:20px;
+  border-radius:20px;
+  scroll-snap-align:start;
+}
+
+/* 지원 */
+.apply{
+  text-align:center;
+}
+.apply a{
+  display:inline-block;
+  margin-top:20px;
+  padding:16px 30px;
+  background:linear-gradient(135deg,#f2d27b,#c9a45c);
+  color:#000;
+  border-radius:12px;
+  text-decoration:none;
 }
 
 /* 반응형 */
-@media(max-width:900px) {
-  .hero-text {
-    position: relative;
-    left: 0;
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .hero {
-    flex-direction: column;
-    height: auto;
-    padding: 120px 20px;
-  }
-
-  .logo-stage {
-    width: 280px;
-    height: 280px;
-  }
-
-  .hero-text h1 {
-    font-size: 36px;
-  }
+@media(max-width:900px){
+  .hero{flex-direction:column;height:auto;padding:120px 20px;}
+  .hero-text{text-align:center;}
+  .logo-stage{width:280px;height:280px;margin-top:40px;}
 }
-
 </style>
 </head>
 
 <body>
 
+<!-- HERO -->
 <section class="hero">
-
-  <div class="hero-text fade-up">
+  <div class="hero-text">
     <h1>
       수업을 잘하는<br>
       트레이너를 넘어,<br>
@@ -216,36 +225,61 @@ body {
       <img src="logo.webp.png">
     </div>
   </div>
+</section>
 
+<!-- 시스템 -->
+<section class="section">
+  <div class="title">트레이너 <span>성장 시스템</span></div>
+
+  <div class="card">전문 실무 교육 (운동 + 상담 + 프로그램 설계)</div>
+  <div class="card">브랜딩 / SNS / 개인 수익 구조 설계</div>
+  <div class="card">AI 활용 교육 + 자동화 시스템</div>
+</section>
+
+<!-- 지점 -->
+<section class="section">
+  <div class="title">채용 중 <span>지점</span></div>
+
+  <div class="branch">
+    <img src="branch.jpg">
+    <div class="branch-info">
+      <h3>미아점</h3>
+      <p>서울 강북구</p>
+      <a href="https://naver.me/xf5A9rE1" target="_blank" class="map-btn">지도 보기</a>
+    </div>
+  </div>
+</section>
+
+<!-- 후기 -->
+<section class="section">
+  <div class="title">먼저 합류한 <span>동료들</span></div>
+
+  <div class="slider">
+    <div class="slide">"단순 수업이 아닌 성장 시스템"</div>
+    <div class="slide">"브랜딩까지 배울 수 있음"</div>
+    <div class="slide">"내 커리어가 바뀜"</div>
+  </div>
+</section>
+
+<!-- 지원 -->
+<section class="section apply" id="apply">
+  <div class="title">지금 시작하세요</div>
+
+  <a href="everypt-application.docx" download>지원서 다운로드</a>
+  <br>
+  <a href="http://pf.kakao.com/_QERxeG/chat" target="_blank">카카오톡 지원하기</a>
 </section>
 
 <script>
-
-/* 마우스 반응 */
 const logo = document.getElementById("logoBox");
 
-document.addEventListener("mousemove", (e) => {
-  const x = (e.clientX / window.innerWidth - 0.5) * 20;
-  const y = (e.clientY / window.innerHeight - 0.5) * -20;
+/* 마우스 3D */
+document.addEventListener("mousemove",(e)=>{
+  const x=(e.clientX/window.innerWidth-0.5)*20;
+  const y=(e.clientY/window.innerHeight-0.5)*-20;
 
-  logo.style.transform = `
-    rotateY(${x}deg)
-    rotateX(${y}deg)
-  `;
+  logo.style.transform=`rotateY(${x}deg) rotateX(${y}deg)`;
 });
-
-/* 스크롤 애니메이션 */
-const fadeEls = document.querySelectorAll(".fade-up");
-
-window.addEventListener("scroll", () => {
-  fadeEls.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if(rect.top < window.innerHeight - 100){
-      el.classList.add("show");
-    }
-  });
-});
-
 </script>
 
 </body>
