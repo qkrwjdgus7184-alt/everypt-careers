@@ -50,7 +50,7 @@ p{color:var(--muted);line-height:1.75;font-size:16px}
 
 .hero{
   min-height:auto;
-  padding:120px 0 52px;
+  padding:120px 0 110px;
   position:relative;
   overflow:hidden;
   background:
@@ -145,7 +145,7 @@ p{color:var(--muted);line-height:1.75;font-size:16px}
 .card:hover{transform:translateY(-8px);border-color:var(--gold);box-shadow:0 25px 60px rgba(201,164,92,.18)}
 
 .stats{
-  margin-top:-56px;
+  margin-top:-42px;
   position:relative;
   z-index:10;
   opacity:0;
@@ -348,6 +348,15 @@ footer p{margin-top:8px}
   .income-tabs button.active{transform:none}
   .review-card{min-width:86%;max-width:86%}
   .bonus-luxury{padding:30px}
+}
+  @media(min-width:821px){
+  .hero{
+    padding-bottom:120px;
+  }
+
+  .stats{
+    margin-top:-44px;
+  }
 }
 </style>
 </head>
