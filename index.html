@@ -315,7 +315,14 @@ p{color:var(--muted);line-height:1.75;font-size:16px}
 .map-btn{margin-top:20px;display:inline-flex;width:fit-content;padding:15px 20px;border-radius:16px;background:#241f18;color:var(--gold2);font-weight:950;transition:.28s}
 .map-btn:hover{background:linear-gradient(135deg,var(--gold2),var(--gold));color:#111;transform:translateY(-4px)}
 
-.review-slider{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;padding:24px 0 10px;cursor:grab}
+.review-slider{
+  display:flex;
+  gap:20px;
+  overflow-x:auto;
+  scroll-snap-type:none;
+  padding:24px 0 10px;
+  cursor:grab;
+}
 .review-slider::-webkit-scrollbar{display:none}
 .review-card{min-width:410px;max-width:410px;scroll-snap-align:center}
 .profile{display:flex;gap:15px;align-items:center;margin-bottom:18px}
@@ -505,10 +512,9 @@ footer p{margin-top:8px}
   <div class="stat"><em>03</em><b>Brand</b><span>개인 브랜딩<br>교육 및 지원</span></div>
   <div class="stat"><em>04</em><b>Partner</b><span>운영 권한 위임</span></div>
 </div>
-    </div>
+   
   </div>
 </div>
-
 <section>
   <div class="wrap">
     <div class="section-head">
@@ -951,6 +957,19 @@ section {
 .stats-grid.upgraded .stat.active::after {
   opacity: 1;
 }
+  .review-slider {
+  scroll-behavior: auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.review-slider.auto-moving {
+  cursor: default;
+}
+
+.review-slider:hover {
+  cursor: grab;
+}
 </style>
 
 <script>
@@ -999,7 +1018,7 @@ stats.forEach(card => {
       <p>좌우로 넘겨 보세요.</p>
     </div>
 
-    <div class="review-slider">
+    <div class="review-slider" id="reviewSlider">
       <div class="card review-card"><div class="profile"><div class="profile-circle">예</div><div><h3>이예진</h3><p>인턴</p></div></div><div class="quote">단순히 정해진 수업만 반복하는 공간이 아니라, 구성원의 시도와 아이디어가 팀의 시스템으로 발전하는 곳이에요.</div></div>
       <div class="card review-card"><div class="profile"><div class="profile-circle">다</div><div><h3>조다연</h3><p>주니어</p></div></div><div class="quote">목적 없이 수업만 하던 시절에는 성장의 즐거움을 몰랐어요. 에브리피티에서 커리어를 설계할 수 있다는 확신이 생겼어요.</div></div>
       <div class="card review-card"><div class="profile"><div class="profile-circle">정</div><div><h3>박정현</h3><p>대표원장</p></div></div><div class="quote">좋은 트레이너가 오래 성장할 수 있는 구조를 만들고 싶었습니다. 수업, 상담, 운영까지 함께 성장하는 공간을 지향합니다.</div></div>
@@ -1121,6 +1140,49 @@ function updateGrowthTimer() {
 
 updateGrowthTimer();
 setInterval(updateGrowthTimer, 1000);
+  const reviewSlider = document.getElementById("reviewSlider");
+
+if (reviewSlider) {
+  const originalContent = reviewSlider.innerHTML;
+  reviewSlider.innerHTML = originalContent + originalContent;
+
+  let speed = 0.35;
+  let isPaused = false;
+
+  reviewSlider.classList.add("auto-moving");
+
+  reviewSlider.addEventListener("mouseenter", () => {
+    isPaused = true;
+  });
+
+  reviewSlider.addEventListener("mouseleave", () => {
+    isPaused = false;
+  });
+
+  reviewSlider.addEventListener("touchstart", () => {
+    isPaused = true;
+  });
+
+  reviewSlider.addEventListener("touchend", () => {
+    setTimeout(() => {
+      isPaused = false;
+    }, 1200);
+  });
+
+  function smoothReviewScroll() {
+    if (!isPaused) {
+      reviewSlider.scrollLeft += speed;
+    }
+
+    if (reviewSlider.scrollLeft >= reviewSlider.scrollWidth / 2) {
+      reviewSlider.scrollLeft = 0;
+    }
+
+    requestAnimationFrame(smoothReviewScroll);
+  }
+
+  smoothReviewScroll();
+}
 </script>
 
 </body>
