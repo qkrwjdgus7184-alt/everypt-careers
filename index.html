@@ -486,11 +486,16 @@ footer p{margin-top:8px}
 
 <div class="stats">
   <div class="wrap">
-    <div class="stats-grid">
-      <div class="stat"><b>1:1밀착수업</b><span>소수정예<br>수업 환경</span></div>
-      <div class="stat"><b>Level</b><span>성장형<br>수업료 구조</span></div>
-      <div class="stat"><b>Brand</b><span>개인 브랜딩<br>교육 및 지원</span></div>
-      <div class="stat"><b>Partner</b><span>운영 권한 위임</span></div>
+    <div class="stats-head">
+  <p>EVERYPT PARTNER SYSTEM</p>
+  <h2>트레이너를 넘어<br><span class="gold">파트너로 성장하는 구조</span></h2>
+</div>
+<div class="stats-grid upgraded">
+  <div class="stat"><em>01</em><b>1:1밀착수업</b><span>소수정예<br>수업 환경</span></div>
+  <div class="stat"><em>02</em><b>Level</b><span>성장형<br>수업료 구조</span></div>
+  <div class="stat"><em>03</em><b>Brand</b><span>개인 브랜딩<br>교육 및 지원</span></div>
+  <div class="stat"><em>04</em><b>Partner</b><span>운영 권한 위임</span></div>
+</div>
     </div>
   </div>
 </div>
@@ -883,6 +888,60 @@ section {
     padding: 32px 22px;
   }
 }
+  /* === hover 업그레이드 시작 === */
+.stats-grid.upgraded .stat {
+  position: relative;
+  transition: all .35s ease;
+  cursor: pointer;
+}
+
+.stats-grid.upgraded .stat::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, rgba(242,210,123,.18), transparent 60%);
+  opacity: 0;
+  transition: .35s;
+  z-index: 0;
+}
+
+.stats-grid.upgraded .stat:hover::after {
+  opacity: 1;
+}
+
+.stats-grid.upgraded .stat:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: var(--gold);
+  box-shadow: 0 30px 80px rgba(201,164,92,.25);
+}
+
+.stats-grid.upgraded .stat:hover em {
+  color: var(--gold2);
+}
+
+.stats-grid.upgraded .stat:hover b {
+  color: var(--gold2);
+}
+
+.stats-grid.upgraded .stat:hover span {
+  color: #fff;
+}
+
+.stats-grid.upgraded:hover .stat:not(:hover) {
+  opacity: .5;
+  transform: scale(.97);
+}
+/* === hover 업그레이드 끝 === */
+  /* === 클릭 선택 효과 === */
+.stats-grid.upgraded .stat.active {
+  transform: translateY(-12px) scale(1.03);
+  border-color: var(--gold2);
+  box-shadow: 0 35px 90px rgba(242,210,123,.35);
+}
+
+.stats-grid.upgraded .stat.active::after {
+  opacity: 1;
+}
 </style>
 
 <script>
@@ -914,6 +973,14 @@ section {
   });
 
   photoScroll.addEventListener("scroll", updateDots);
+  const stats = document.querySelectorAll(".stats-grid.upgraded .stat");
+
+stats.forEach(card => {
+  card.addEventListener("click", () => {
+    stats.forEach(c => c.classList.remove("active"));
+    card.classList.add("active");
+  });
+});
 </script>
 
 <section>
