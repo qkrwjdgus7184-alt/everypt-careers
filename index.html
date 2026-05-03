@@ -358,6 +358,67 @@ footer p{margin-top:8px}
     margin-top:-44px;
   }
 }
+  .growth-timer {
+  padding: 80px 0 90px;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(242,210,123,.13), transparent 34%),
+    #07090d;
+  text-align: center;
+}
+
+.growth-label {
+  color: var(--gold2);
+  font-size: 12px;
+  font-weight: 950;
+  letter-spacing: 3px;
+  margin-bottom: 16px;
+}
+
+.growth-copy {
+  color: #d5dae3;
+  margin: 14px auto 34px;
+  max-width: 620px;
+}
+
+.timer-box {
+  max-width: 760px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.timer-box div {
+  padding: 26px 12px;
+  border-radius: 24px;
+  background: rgba(16,23,34,.92);
+  border: 1px solid rgba(255,255,255,.11);
+  box-shadow: 0 18px 55px rgba(0,0,0,.28);
+}
+
+.timer-box strong {
+  display: block;
+  font-size: clamp(34px, 6vw, 62px);
+  color: var(--gold2);
+  line-height: 1;
+}
+
+.timer-box span {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+  font-weight: 800;
+}
+
+@media(max-width:600px) {
+  .growth-timer {
+    padding: 64px 0 70px;
+  }
+
+  .timer-box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 </style>
 </head>
 
@@ -402,6 +463,26 @@ footer p{margin-top:8px}
     </div>
   </div>
 </section>
+
+<!-- 성장 타이머 섹션 시작 -->
+<section class="growth-timer">
+  <div class="wrap">
+    <p class="growth-label">EVERYPT SINCE 2024.05.02</p>
+    <h2>치열한 시장 속에서도<br><span class="gold">에브리피티는 성장 중입니다.</span></h2>
+    <p class="growth-copy">
+      2024년 5월 2일부터 지금까지,<br>
+      멈추지 않고 성장의 시간을 쌓아가고 있습니다.
+    </p>
+
+    <div class="timer-box">
+      <div><strong id="days">0</strong><span>일</span></div>
+      <div><strong id="hours">0</strong><span>시간</span></div>
+      <div><strong id="minutes">0</strong><span>분</span></div>
+      <div><strong id="seconds">0</strong><span>초</span></div>
+    </div>
+  </div>
+</section>
+<!-- 성장 타이머 섹션 끝 -->
 
 <div class="stats">
   <div class="wrap">
@@ -944,6 +1025,26 @@ function revealStats(){
 }
 window.addEventListener("scroll",revealStats);
 window.addEventListener("load",revealStats);
+
+function updateGrowthTimer() {
+  const startDate = new Date("2024-05-02T00:00:00+09:00");
+  const now = new Date();
+
+  const diff = now - startDate;
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("days").textContent = days;
+  document.getElementById("hours").textContent = hours;
+  document.getElementById("minutes").textContent = minutes;
+  document.getElementById("seconds").textContent = seconds;
+}
+
+updateGrowthTimer();
+setInterval(updateGrowthTimer, 1000);
 </script>
 
 </body>
