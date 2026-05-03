@@ -548,25 +548,253 @@ footer p{margin-top:8px}
   </div>
 </section>
 
-<section>
-  <div class="wrap">
-    <div class="section-head">
-      <h2>지금 채용 중인 지점</h2>
-      <p>서울 강북구 수유역 2번출구 도보 1분거리<br>에브리피티에서 함께할 트레이너 파트너를 찾고 있습니다.</p>
+<section class="location-section" id="location">
+  <div class="location-head">
+    <h2>지금 채용 중인 지점</h2>
+    <p>서울 강북구 수유역 2번출구 도보 1분거리</p>
+    <p>에브리피티에서 함께할 트레이너 파트너를 찾고 있습니다.</p>
+  </div>
+
+  <div class="location-card">
+    <div class="photo-wrapper">
+      <button class="slide-btn prev-btn" type="button">‹</button>
+
+      <div class="photo-scroll">
+        <img src="suyu-1.jpg" alt="에브리피티 수유점 사진 1">
+        <img src="suyu-2.jpg" alt="에브리피티 수유점 사진 2">
+        <img src="suyu-3.jpg" alt="에브리피티 수유점 사진 3">
+        <img src="suyu-4.jpg" alt="에브리피티 수유점 사진 4">
+        <img src="suyu-5.jpg" alt="에브리피티 수유점 사진 5">
+        <img src="suyu-6.jpg" alt="에브리피티 수유점 사진 6">
+        <img src="suyu-7.jpg" alt="에브리피티 수유점 사진 7">
+      </div>
+
+      <button class="slide-btn next-btn" type="button">›</button>
+
+      <div class="slide-dots">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
     </div>
 
-    <div class="branch-card">
-      <div class="branch-img"><img src="branch1.jpg.jpg" alt="에브리피티 수유점"></div>
-      <div class="branch-info">
-        <h3>EVERYPT 수유점</h3>
-        <p><b>1. 지역</b> 서울 강북구 수유역 인근</p>
-        <p><b>2. 채용</b> 프리랜서 그룹PT 트레이너</p>
-        <p><b>3. 방향</b> 수업·상담·회원관리·성장형 파트너십</p>
-        <a class="map-btn" href="https://naver.me/xf5A9rE1" target="_blank">네이버 지도에서 위치 보기 →</a>
-      </div>
+    <div class="location-info">
+      <h3>EVERYPT 수유점</h3>
+      <p><strong>1. 지역</strong> 서울 강북구 수유역 인근</p>
+      <p><strong>2. 채용</strong> 프리랜서 그룹PT 트레이너</p>
+      <p><strong>3. 방향</strong> 수업·상담·회원관리·성장형 파트너십</p>
+
+      <a
+        href="https://map.naver.com/"
+        target="_blank"
+        class="map-btn"
+      >
+        네이버 지도에서 위치 보기 →
+      </a>
     </div>
   </div>
 </section>
+
+<style>
+.location-section {
+  padding: 80px 20px;
+  background: #05070b;
+  color: #ffffff;
+}
+
+.location-head {
+  max-width: 1100px;
+  margin: 0 auto 36px;
+}
+
+.location-head h2 {
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.1;
+  margin-bottom: 22px;
+  letter-spacing: -0.04em;
+}
+
+.location-head p {
+  color: #cbd5e1;
+  font-size: 16px;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.location-card {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  overflow: hidden;
+  border-radius: 28px;
+  background: #111827;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.photo-wrapper {
+  position: relative;
+  overflow: hidden;
+  background: #000;
+}
+
+.photo-scroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+.photo-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.photo-scroll img {
+  min-width: 100%;
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  scroll-snap-align: start;
+}
+
+.slide-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.48);
+  color: #ffffff;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.prev-btn {
+  left: 16px;
+}
+
+.next-btn {
+  right: 16px;
+}
+
+.slide-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 7px;
+  z-index: 5;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.dot.active {
+  width: 18px;
+  background: #ffffff;
+}
+
+.location-info {
+  padding: 70px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.location-info h3 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.location-info p {
+  color: #dbe4f0;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.map-btn {
+  margin-top: 28px;
+  width: fit-content;
+  display: inline-block;
+  padding: 14px 22px;
+  border-radius: 999px;
+  background: #33230c;
+  color: #facc15;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .location-section {
+    padding: 60px 14px;
+  }
+
+  .location-card {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+
+  .photo-scroll img {
+    height: 330px;
+  }
+
+  .location-info {
+    padding: 34px 24px;
+  }
+
+  .slide-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 26px;
+  }
+}
+</style>
+
+<script>
+  const photoScroll = document.querySelector(".photo-scroll");
+  const nextBtn = document.querySelector(".next-btn");
+  const prevBtn = document.querySelector(".prev-btn");
+  const dots = document.querySelectorAll(".dot");
+
+  function updateDots() {
+    const index = Math.round(photoScroll.scrollLeft / photoScroll.clientWidth);
+
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === index);
+    });
+  }
+
+  nextBtn.addEventListener("click", () => {
+    photoScroll.scrollBy({
+      left: photoScroll.clientWidth,
+      behavior: "smooth"
+    });
+  });
+
+  prevBtn.addEventListener("click", () => {
+    photoScroll.scrollBy({
+      left: -photoScroll.clientWidth,
+      behavior: "smooth"
+    });
+  });
+
+  photoScroll.addEventListener("scroll", updateDots);
+</script>
 
 <section>
   <div class="wrap">
