@@ -119,8 +119,9 @@ p{color:var(--muted);line-height:1.75;font-size:16px}
 .logo-box{
   position:relative;z-index:4;width:min(410px,76%);aspect-ratio:1/1;
   display:grid;place-items:center;transform-style:preserve-3d;
-  animation:autoFloat 6s ease-in-out infinite,autoRotate 14s linear infinite;
-  transition:transform .12s ease-out;will-change:transform
+  animation:none;
+  transition:none;
+  will-change:auto;
 }
 .logo-box:before{
   content:"";position:absolute;inset:12%;border-radius:50%;
@@ -303,7 +304,7 @@ p{color:var(--muted);line-height:1.75;font-size:16px}
   height:100%;
   object-fit:cover;
 }
-.book-card:hover img{transform:translateY(-10px) rotate(-1deg) scale(1.025)}
+.book-card:hover img{transform:none}
 .story-link{margin-top:22px;display:inline-flex;color:var(--gold2);font-weight:950}
 
 .branch-card{display:grid;grid-template-columns:1fr .9fr;border-radius:34px;overflow:hidden;background:var(--card);border:1px solid var(--line);transition:.32s}
